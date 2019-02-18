@@ -11,7 +11,7 @@ const App = () => (
     <GlobalStyle />
     <Suspense fallback={<span>loading</span>}>
       <Switch>
-        <Route path="/" component={() => <Home home={mockData} />} exact />
+        <Route path="/" component={() => <Home />} exact />
       </Switch>
     </Suspense>
   </main>

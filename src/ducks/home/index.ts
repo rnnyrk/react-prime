@@ -8,7 +8,7 @@ const HOME_SUCCESS = 'home/success';
 const HOME_FAILED = 'home/failed';
 
 const initialState: i.HomeState = {
-  loading: false,
+  loading: true,
   data: null,
 };
 

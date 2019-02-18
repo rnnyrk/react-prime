@@ -1,4 +1,5 @@
 import * as i from 'types';
+import { MapStateToProps as ReduxMapStateToProps } from 'react-redux';
 import { Dispatch } from 'redux';
 import { ThunkAction as IThunkAction } from 'redux-thunk';
 import { ActionType } from 'typesafe-actions';
@@ -22,3 +23,6 @@ export type ThunkAction<R = void> = IThunkAction<R, i.ReduxState, i.ApiHelper, A
 export type D = Dispatch<i.Action>;
 export type GS = () => i.ReduxState;
 export type A = i.ApiHelper;
+
+// Add Redux state to type, component props optional
+export type MapStateToProps<P = {}> = ReduxMapStateToProps<any, P, i.ReduxState>;
