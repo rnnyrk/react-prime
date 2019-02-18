@@ -5,7 +5,7 @@ import { ImageGroupContainer } from './styled';
 const ImageGroup: React.FC<ImageGroupProps> = (props) => (
   <ImageGroupContainer>
     {props.images.map((image) => (
-      <img src={image.large} alt={image.alt} />
+      <img src={image.src} alt={image.alt} />
     ))}
   </ImageGroupContainer>
 );

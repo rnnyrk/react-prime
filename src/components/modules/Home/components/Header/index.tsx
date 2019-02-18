@@ -5,7 +5,7 @@ import { HeaderContainer } from './styled';
 
 const Header: React.FC<HeaderProps> = (props) => (
   <HeaderContainer>
-    <img src={props.image.large} alt={props.image.alt} />
+    <img src={props.image.src} alt={props.image.alt} />
   </HeaderContainer>
 );
 
