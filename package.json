@@ -14,7 +14,8 @@
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
     "lint": "eslint --ext .jsx --ext .js src/",
-    "analyzer": "webpack -p --config config/webpack.config.prod.js --profile --json > stats.json && webpack-bundle-analyzer stats.json ./dist"
+    "analyzer": "webpack -p --config config/webpack.config.prod.js --profile --json > stats.json && webpack-bundle-analyzer stats.json ./dist",
+    "gendocs": "rimraf docs/ && typedoc src"
   },
   "keywords": [
     "react",
@@ -72,6 +73,7 @@
     "tslint": "5.12.1",
     "tslint-config-airbnb": "5.11.1",
     "tslint-react": "3.6.0",
+    "typedoc": "0.14.2",
     "typescript": "3.2.2",
     "url-loader": "1.1.2",
     "webpack": "^4.26.0",
