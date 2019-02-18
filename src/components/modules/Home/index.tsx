@@ -6,6 +6,8 @@ import { getHome } from 'ducks/home';
 
 import ImageGroup from 'common/ImageGroup';
 import Header from './components/Header';
+import { compose } from 'redux';
+import { withRouter } from 'react-router';
 
 class Home extends React.Component<HomeProps> {
   componentDidMount() {
@@ -24,7 +26,7 @@ class Home extends React.Component<HomeProps> {
   }
 }
 
-type HomeProps = {
+type HomeProps = i.RouteComponentProps & {
   home: i.HomeState;
   getHome: i.GetHomeAction;
 };
@@ -33,4 +35,7 @@ const mapStateToProps: i.MapStateToProps = (state) => ({
   home: state.home,
 });
 
-export default connect(mapStateToProps, { getHome })(Home);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { getHome })
+)(Home);
