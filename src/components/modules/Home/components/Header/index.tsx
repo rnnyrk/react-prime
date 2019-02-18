@@ -1,3 +1,4 @@
+import * as i from 'types';
 import React from 'React';
 
 import { HeaderContainer } from './styled';
@@ -9,10 +10,7 @@ const Header: React.FC<HeaderProps> = (props) => (
 );
 
 type HeaderProps = {
-  image: {
-    large: string;
-    alt: string;
-  }
+  image: i.Image;
 };
 
 export default Header;

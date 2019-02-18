@@ -1,3 +1,4 @@
+import * as i from 'types';
 import React from 'react';
 
 import Header from './components/Header';
@@ -8,10 +9,7 @@ const Home: React.FC<HomeProps> = (props) => (
 
 type HomeProps = {
   home: {
-    header_image: {
-      large: string;
-      alt: string;
-    }
+    header_image: i.Image;
   }
 };
 
