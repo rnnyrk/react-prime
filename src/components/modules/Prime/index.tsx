@@ -1,11 +1,14 @@
+import * as i from 'types';
 import React from 'react';
+import { connect } from 'react-redux';
 
-import Anchor from 'common/Anchor';
+import { getData } from 'ducks/data';
 import Logo from 'vectors/logo.svg';
 import GithubLogo from 'images/github-logo.png';
-import { PrimeHeader, PrimeContent, GithubLink } from './styled';
+import Anchor from 'common/Anchor';
+import { PrimeHeader, PrimeContent, GithubLink, PrimeButton } from './styled';
 
-const Prime = () => (
+const Prime: React.FC<PrimeProps> = (props) => (
   <>
     <PrimeHeader>
       <Logo />
@@ -18,8 +21,28 @@ const Prime = () => (
       <GithubLink href="https://github.com/JBostelaar/react-prime">
         <img src={GithubLogo} alt="github" />
       </GithubLink>
+
+      <p>
+        {props.data.data.success
+          ? 'Installation successful!'
+          : (
+            <PrimeButton onClick={props.getData}>
+              {props.data.loading ? 'Installing...' : 'Install Redux'}
+            </PrimeButton>
+          )
+        }
+      </p>
     </PrimeContent>
   </>
 );
 
-export default Prime;
+type PrimeProps = {
+  data: i.DataState;
+  getData: i.GetDataThunk;
+};
+
+const mapStateToProps: i.MapStateToProps = (state) => ({
+  data: state.data,
+});
+
+export default connect(mapStateToProps, { getData })(Prime);
