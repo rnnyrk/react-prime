@@ -1,11 +1,6 @@
-import * as i from 'types';
-
-export interface Theme {
-  black: string;
-  prime: string;
-}
+import theme from './theme';
 
 export interface BaseStyled {
-  theme?: i.Theme;
+  theme?: typeof theme;
   className?: string;
 }
