@@ -1,11 +1,11 @@
-const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { GenerateSW } = require('workbox-webpack-plugin');
-const globals = require('./globals');
-const merge = require('./webpack.config.base');
-const paths = require('./paths');
+import * as webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { GenerateSW } from 'workbox-webpack-plugin';
+import globals from './globals';
+import { merge } from './webpack.config.base';
+import paths from './paths';
 
-const prodConfig = {
+const prodConfig: webpack.Configuration = {
   name: 'client',
   entry: { app: ['@babel/polyfill', paths.resolveSrc()] },
   plugins: [
@@ -20,4 +20,4 @@ const prodConfig = {
   ],
 };
 
-module.exports = merge(prodConfig);
+export default merge(prodConfig);

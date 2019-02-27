@@ -1,6 +1,8 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+const paths = {
   resolveSrc: (relativePath = '') => path.resolve(__dirname, '../src/', relativePath),
   resolveRoot: (relativePath = '') => path.resolve(__dirname, '../', relativePath),
 };
+
+export default paths;

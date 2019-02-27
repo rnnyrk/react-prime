@@ -1,10 +1,11 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const webpackMerge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const paths = require('./paths');
+import * as webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import webpackMerge from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import paths from './paths';
 
-const baseConfig = {
+const baseConfig: webpack.Configuration = {
   mode: 'production',
   output: {
     filename: 'static/js/[name].[hash].js',
@@ -39,10 +40,15 @@ const baseConfig = {
         oneOf: [
           {
             resourceQuery: /external/,
-            loader: 'file-loader?name=static/[name].[ext]',
+            loader: 'file-loader',
+            query: { name: 'static/[name].[ext]' },
           },
           {
-            loader: 'url-loader?limit=10000&name=static/images/[hash].[ext]',
+            loader: 'url-loader',
+            query: {
+              limit: 10000,
+              name: 'static/images/[name].[ext]',
+            },
           },
         ],
       },
@@ -90,6 +96,6 @@ const baseConfig = {
   },
 };
 
-const merge = (...config) => webpackMerge(baseConfig, ...config);
+export default baseConfig;
 
-module.exports = merge;
+export const merge = (...config: webpack.Configuration[]) => webpackMerge(baseConfig, ...config);
