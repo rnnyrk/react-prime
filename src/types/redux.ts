@@ -6,12 +6,12 @@ import { MapStateToProps as ReduxMapStateToProps } from 'react-redux';
   Shape of a Redux action
   P = shape of payload
 */
-export interface Action<P = any> {
+export type Action<P = any> = {
   type: string;
   payload?: P;
   error?: boolean,
   meta?: any,
-}
+};
 
 /*
   Thunk action type with pre-filled generics

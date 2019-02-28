@@ -1,5 +1,5 @@
 import * as i from 'types';
 
-export interface ReduxState {
+export type ReduxState = {
   data: i.DataState;
 }
