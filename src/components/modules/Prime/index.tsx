@@ -8,7 +8,7 @@ import GithubLogo from 'images/github-logo.png';
 import Anchor from 'common/Anchor';
 import { PrimeHeader, PrimeContent, GithubLink, PrimeButton } from './styled';
 
-const Prime: React.FC<PrimeProps> = (props) => (
+const Prime: React.FC<PrimeProps> = ({ data, getData }) => (
   <>
     <PrimeHeader>
       <Logo />
@@ -23,11 +23,11 @@ const Prime: React.FC<PrimeProps> = (props) => (
       </GithubLink>
 
       <p>
-        {props.data.data.success
+        {data.data.success
           ? 'Installation successful!'
           : (
-            <PrimeButton onClick={props.getData}>
-              {props.data.loading ? 'Installing...' : 'Install Redux'}
+            <PrimeButton onClick={getData}>
+              {data.loading ? 'Installing...' : 'Install Redux'}
             </PrimeButton>
           )
         }
