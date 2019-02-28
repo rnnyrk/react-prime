@@ -23,5 +23,6 @@ export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxSta
 /*
   MapStateToProps type with pre-filled state
   P = component props
+  T = state props
 */
-export type MapStateToProps<P = any> = ReduxMapStateToProps<any, P, i.ReduxState>;
+export type MapStateToProps<P = any, T = any> = ReduxMapStateToProps<T, P, i.ReduxState>;
