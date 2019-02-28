@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // global variables
 declare const __DEV__: boolean;
 declare const __PROD__: boolean;
@@ -8,17 +9,10 @@ interface Window {
   __REDUX_DEVTOOLS_EXTENSION__: Function;
 }
 
-// extend NodeJS modules
-interface NodeModule {
-  hot: {
-    accept: (path: string, cb: Function) => any;
-  };
-}
-
 // files
 declare module '*.svg';
 declare module '*.png' {
-  const value: any;
+  const value: string;
   export = value;
 }
 declare module '*.json' {
