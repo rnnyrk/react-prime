@@ -1,7 +1,7 @@
+import * as path from 'path';
 import * as webpack from 'webpack';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { merge } from './webpack.config.base';
-import paths from './paths';
 import globals from '../config/globals';
 
 const devConfig: webpack.Configuration = merge({
@@ -10,7 +10,7 @@ const devConfig: webpack.Configuration = merge({
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',
       '@babel/polyfill',
-      paths.resolveSrc(),
+      path.resolve('src'),
     ],
   },
   plugins: [

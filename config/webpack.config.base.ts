@@ -1,15 +1,15 @@
+import * as path from 'path';
 import * as webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import webpackMerge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import paths from './paths';
 
 const baseConfig: webpack.Configuration = {
   mode: 'production',
   output: {
     filename: 'static/js/[name].[hash].js',
-    path: paths.resolveRoot('dist'),
+    path: path.resolve('dist'),
     publicPath: '/',
   },
   module: {
@@ -70,7 +70,7 @@ const baseConfig: webpack.Configuration = {
   plugins: [
     new CopyWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
-      template: paths.resolveSrc('template.ejs'),
+      template: path.resolve('src/template.ejs'),
       filename: 'index.html',
       chunksSortMode: 'none',
     }),
