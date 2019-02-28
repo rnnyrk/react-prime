@@ -23,7 +23,8 @@
     "redux",
     "boilerplate",
     "babel",
-    "styled-components"
+    "styled-components",
+    "typescript"
   ],
   "dependencies": {
     "compression": "^1.7.3",
