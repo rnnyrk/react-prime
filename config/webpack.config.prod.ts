@@ -9,7 +9,10 @@ const prodConfig: webpack.Configuration = {
   name: 'client',
   entry: { app: ['@babel/polyfill', path.resolve('src')] },
   plugins: [
-    new CopyWebpackPlugin([{ from: path.resolve('server/index.js'), to: 'server.js' }]),
+    new CopyWebpackPlugin([{
+      from: path.resolve('server/index.js'),
+      to: 'server.js',
+    }]),
     new webpack.DefinePlugin(globals),
     new GenerateSW({
       cacheId: 'prime',

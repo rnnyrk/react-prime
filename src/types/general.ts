@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { RouteComponentProps as IRouteComponentProps } from 'react-router-dom';
 
 // Make generics optional

@@ -12,6 +12,17 @@
 
 ## Quick start
 Use [create-react-prime](https://www.npmjs.com/package/create-react-prime) for easy install.
+
+If you are using VSCode, add the following setting to your `settings.json` to enable ESLint
+```
+"eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {"language": "typescript", "autoFix": true },
+    {"language": "typescriptreact", "autoFix": true }
+]
+```
+
 ```
 npx create-react-prime my-app
 cd my-app

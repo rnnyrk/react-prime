@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as i from 'types';
 import { ThunkAction as IThunkAction } from 'redux-thunk';
 import { MapStateToProps as ReduxMapStateToProps } from 'react-redux';
@@ -9,8 +10,8 @@ import { MapStateToProps as ReduxMapStateToProps } from 'react-redux';
 export type Action<P = any> = {
   type: string;
   payload?: P;
-  error?: boolean,
-  meta?: any,
+  error?: boolean;
+  meta?: any;
 };
 
 /*
