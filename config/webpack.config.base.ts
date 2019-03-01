@@ -15,7 +15,7 @@ const baseConfig: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.[tj]sx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
@@ -89,9 +89,7 @@ const baseConfig: webpack.Configuration = {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
     plugins: [
-      new TsconfigPathsPlugin({
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      }),
+      new TsconfigPathsPlugin(),
     ],
   },
 };
