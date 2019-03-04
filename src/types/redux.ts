@@ -1,7 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as i from 'types';
-import { ThunkAction as IThunkAction } from 'redux-thunk';
+import { Store as ReduxStore } from 'redux';
+import { ThunkAction as IThunkAction, ThunkDispatch as IThunkDispatch } from 'redux-thunk';
 import { MapStateToProps as ReduxMapStateToProps } from 'react-redux';
+
+/*
+  Store type
+  Extended with Redux-Thunk dispatch type
+*/
+export type Store = ReduxStore<i.ReduxState, i.Action> & {
+  dispatch: i.ThunkDispatch;
+};
 
 /*
   Shape of a Redux action
@@ -18,7 +27,12 @@ export type Action<P = any> = {
   Thunk action type with pre-filled generics
   ReturnType = return type of function
 */
-export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxState, {}, Action>;
+export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxState, i.ApiHelper, Action>;
+
+/*
+  Thunk Dispatch action with pre-filled generics
+*/
+export type ThunkDispatch = IThunkDispatch<i.ReduxState, {}, i.Action>;
 
 /*
   MapStateToProps type with pre-filled state
