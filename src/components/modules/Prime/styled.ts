@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Anchor from 'common/Anchor';
 
 export const PrimeHeader = styled.header`
@@ -27,25 +27,3 @@ export const GithubLink = styled(Anchor)`
     width: 100%;
   }
 `;
-
-export const PrimeButton = styled.button<PrimeButtonProps>`
-  padding: 10px;
-  border-radius: 2px;
-  border: 0;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  outline: 0;
-
-  ${(props) => props.invert ? css`
-    background-color: ${(props) => props.theme.black};
-    color: ${(props) => props.theme.prime};
-  ` : css`
-    background-color: ${(props) => props.theme.prime};
-    color: ${(props) => props.theme.black};
-  `}
-`;
-
-type PrimeButtonProps = {
-  invert?: boolean;
-};
