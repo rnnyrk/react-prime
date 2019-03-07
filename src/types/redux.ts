@@ -27,7 +27,8 @@ export type Action<P = any> = {
   Thunk action type with pre-filled generics
   ReturnType = return type of function
 */
-export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxState, i.ApiHelper, Action>;
+type ExtraArguments = {};
+export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxState, ExtraArguments, Action>;
 
 /*
   Thunk Dispatch action with pre-filled generics
