@@ -1,4 +1,10 @@
+import { ThemedCssFunction } from '../../node_modules/@types/styled-components';
 import { css } from 'styled-components';
+import theme from './theme';
+
+type MediaUtils = {
+  [x in keyof typeof sizes]: ThemedCssFunction<typeof theme>;
+}
 
 export const sizes = {
   large: 1200,
@@ -13,7 +19,7 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
   // @ts-ignore
   accumulator[label] = (...args) => css`@media (min-width: ${emSize}em) {${css(...args)};}`;
   return accumulator;
-}, {});
+}, {} as MediaUtils);
 
 export const hexToRgba = (hex, alpha = '0.2') => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);

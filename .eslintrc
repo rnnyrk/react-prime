@@ -1,26 +1,20 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "react-app"
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended"
   ],
   "parserOptions": {
       "ecmaVersion": 2018,
       "sourceType": "module",
       "ecmaFeatures": {
         "jsx": true
-      }
+    }
   },
   "settings": {
     "react": {
         "version": "detect"
     }
-  },
-  "globals": {
-    "__DEV__": false,
-    "__TEST__": false,
-    "__ACC__": false,
-    "__PROD__": false
   },
   "rules": {
     "array-bracket-spacing": ["error", "never"],
@@ -61,6 +55,8 @@
     "@typescript-eslint/no-empty-interface": false,
     "@typescript-eslint/prefer-interface": false,
     "@typescript-eslint/explicit-member-accessibility": [true, "no-public"],
-    "@typescript-eslint/no-use-before-define": false
+    "@typescript-eslint/no-use-before-define": false,
+    "@typescript-eslint/no-object-literal-type-assertion": false,
+    "@typescript-eslint/no-parameter-properties": false
   }
 }
