@@ -9,7 +9,6 @@ const devConfig: webpack.Configuration & devServer.Configuration = merge({
   mode: 'development',
   entry: {
     app: [
-      'webpack-hot-middleware/client?reload=true&noInfo=true',
       '@babel/polyfill',
       path.resolve('src'),
     ],
