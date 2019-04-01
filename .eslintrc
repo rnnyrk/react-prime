@@ -1,20 +1,26 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
-      "plugin:@typescript-eslint/recommended",
-      "react-app"
+    "plugin:@typescript-eslint/recommended",
+    "react-app"
   ],
   "parserOptions": {
       "ecmaVersion": 2018,
       "sourceType": "module",
       "ecmaFeatures": {
         "jsx": true
-    }
+      }
   },
   "settings": {
     "react": {
         "version": "detect"
     }
+  },
+  "globals": {
+    "__DEV__": false,
+    "__TEST__": false,
+    "__ACC__": false,
+    "__PROD__": false
   },
   "rules": {
     "array-bracket-spacing": ["error", "never"],
@@ -33,14 +39,12 @@
         "case": { "after": true }
       }
     }],
-    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
     "no-console": [2, { "allow": ["info", "error"]}],
     "no-trailing-spaces": ["error"],
     "object-curly-spacing": ["error", "always"],
     "prefer-const": ["error"],
     "quotes": ["error", "single"],
-    "react/no-unused-prop-types": 0,
-    "react/prop-types": 0,
     "semi": ["error", "always"],
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", {
@@ -50,6 +54,29 @@
     }],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
+    "eol-last": ["error", "always"],		
+    "react/self-closing-comp": ["error", {		
+      "component": true,		
+      "html": true		
+    }],		
+    "react/jsx-tag-spacing": {
+      "closingSlash": "never",
+      "beforeSelfClosing": "always",
+      "afterOpening": "never",
+      "beforeClosing": "never"
+    },		
+    "import/no-unresolved": false,		
+    "import/named": false,		
+    "import/order": ["error", {		
+      "groups": [		
+        "external",		
+        "internal",		
+        "index",		
+        "parent",		
+        "sibling",		
+        "builtin"		
+      ]		
+    }],
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/explicit-function-return-type": false,
     "@typescript-eslint/no-empty-interface": false,
@@ -57,6 +84,8 @@
     "@typescript-eslint/explicit-member-accessibility": [true, "no-public"],
     "@typescript-eslint/no-use-before-define": false,
     "@typescript-eslint/no-object-literal-type-assertion": false,
-    "@typescript-eslint/no-parameter-properties": false
+    "@typescript-eslint/no-parameter-properties": false,
+    "@typescript-eslint/prefer-namespace-keyword": false,
+    "@typescript-eslint/no-namespace": false
   }
 }
