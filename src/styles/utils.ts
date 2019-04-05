@@ -1,10 +1,5 @@
-import { ThemedCssFunction } from '../../node_modules/@types/styled-components';
 import { css } from 'styled-components';
-import theme from './theme';
-
-type MediaUtils = {
-  [x in keyof typeof sizes]: ThemedCssFunction<typeof theme>;
-}
+import { MediaUtils } from 'types';
 
 export const sizes = {
   large: 1200,
