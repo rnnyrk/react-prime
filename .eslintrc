@@ -71,10 +71,7 @@
       "groups": [		
         "builtin",
         "external",		
-        "internal",		
-        "index",		
-        "parent",		
-        "sibling"
+        "internal"
       ]
     }],
     "@typescript-eslint/indent": ["error", 2],
