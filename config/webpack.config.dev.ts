@@ -5,7 +5,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import globals from '../config/globals';
 import { merge } from './webpack.config.base';
 
-const devConfig: webpack.Configuration & devServer.Configuration = merge({
+const devConfig: devServer.Configuration = merge({
   mode: 'development',
   entry: {
     app: [
@@ -19,8 +19,9 @@ const devConfig: webpack.Configuration & devServer.Configuration = merge({
     new webpack.DefinePlugin(globals),
   ],
   devServer: {
+    host: '0.0.0.0',
+    port: process.env.PORT || 3000,
     hot: true,
-    port: Number(process.env.PORT) || 3000,
     stats: 'minimal',
     historyApiFallback: true,
   },
