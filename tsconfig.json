@@ -30,6 +30,6 @@
       "styled-components": ["src/services/styled-components"]
     },
     "typeRoots": ["node_modules/@types"],
-    "lib": ["dom", "es6"]
+    "lib": ["dom", "es2017"]
   }
 }
